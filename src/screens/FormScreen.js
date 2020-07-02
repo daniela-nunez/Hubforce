@@ -38,9 +38,6 @@ export default function FormScreen(){
     <View style={styles.body}>
     
       <View style={styles.bodyLeft}>
-
-      <form>
-      
           
             <Text for="nya">Identificador:</Text>
             <TextInput 
@@ -83,12 +80,10 @@ export default function FormScreen(){
         size={20}
         onPress={() => console.log('Pressed')}
       />
-   </form>
    </View>
 
       <View style={styles.bodyRight}>
-      
-      <form>   
+   
             <Text for="nya">Precio:</Text>
             <TextInput
             style={{ height: 40, borderColor: 'gray', borderWidth: 1 , marginBottom: 20}}
@@ -131,8 +126,6 @@ export default function FormScreen(){
             <TouchableHighlight style={styles.buttonEnviar}>
             <Text style= {styles.textButoon}>Enviar</Text>           
             </TouchableHighlight> 
-        
-    </form>
 
       </View>
       
