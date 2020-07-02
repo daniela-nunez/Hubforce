@@ -1,35 +1,104 @@
-import React, { memo } from 'react';
-import Background from '../components/Background';
-import Logo from '../components/Logo';
-import Title from '../components/Title';
-import Header from '../components/Header';
-import Paragraph from '../components/Paragraph';
-import Button from '../components/Button';
-import { Navigation } from '../types';
-import axios from "axios"
+import * as WebBrowser from 'expo-web-browser';
+import * as React from 'react';
+import { Image, Platform, StyleSheet, Alert, Text, FlatList, TouchableOpacity, Button, View } from 'react-native';
+import { ScrollView } from 'react-native-gesture-handler';
 
-import { Dialog, Portal } from 'react-native-paper';
+import { MonoText } from '../components/StyledText';
 
-type Props = {
-  navigation: Navigation;
+export default function Dashboard() {
+
+  return (
+    <View style={styles.container}>
+
+
+        <Text style={styles.textContainer}>
+          FORMULARIO 1
+          <View style={styles.buttonContainer}>
+          
+          <Button          
+            title="EDIT"
+            color="blue"
+            onPress={() => Alert.alert('Button with adjusted color pressed')}
+          />
+          </View>
+          <View style={styles.buttonContainer}>
+          <Button
+            title="DELETE"
+            color="blue"
+            onPress={() => Alert.alert('Button with adjusted color pressed')}
+          />
+          </View>
+        </Text>
+        <Text style={styles.textContainer}>
+          FORMULARIO 2
+          <View style={styles.buttonContainer}>
+          
+          <Button          
+            title="EDIT"
+            color="blue"
+            onPress={() => Alert.alert('Button with adjusted color pressed')}
+          />
+          </View>
+          <View style={styles.buttonContainer}>
+          <Button
+            title="DELETE"
+            color="blue"
+            onPress={() => Alert.alert('Button with adjusted color pressed')}
+          />
+          </View>
+        </Text>
+        <Text style={styles.textContainer}>
+          FORMULARIO 3
+          <View style={styles.buttonContainer}>
+          
+          <Button          
+            title="EDIT"
+            color="blue"
+            onPress={() => Alert.alert('Button with adjusted color pressed')}
+          />
+          </View>
+          <View style={styles.buttonContainer}>
+          <Button
+            title="DELETE"
+            color="blue"
+            onPress={() => Alert.alert('Button with adjusted color pressed')}
+          />
+          </View>
+        </Text>
+        
+          </View>
+
+  );
+}
+
+Dashboard.navigationOptions = {
+  header: null,
 };
 
-const Dashboard = ({ navigation }: Props) => {
-  let user = {};
 
-  let state = {
-    visible: false,
-  };
 
-  const _hide = () => this.setState({ visible: false });
-    
-  return (<Background>
-    <Title>Hola {user ? user.first_name : 'sin Nombre'}</Title>
-    <Paragraph>
-        Sitio para generar e importar reportes de ventas. 
-    </Paragraph>
+
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#393e46',
+
+
+  },
+
+  textContainer: {
+    textAlign: "center",
+    marginTop: 7,
+    marginLeft: 7,
+    color: "#e8ead3",
+    backgroundColor: "#000000"
+  },
+
+  buttonContainer: {
+    paddingLeft: 20
+
+  }
+
   
-  </Background>);
-};
-
-export default memo(Dashboard);
+});
