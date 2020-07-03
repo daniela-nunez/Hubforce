@@ -1,9 +1,8 @@
 import * as React from 'react';
 import FieldSet from 'react-native-fieldset';
-import {View, Text, StyleSheet, TouchableHighlight, form } from 'react-native';
+import { View, Text, StyleSheet, TouchableHighlight, Picker } from 'react-native';
 import { isConstructorDeclaration } from 'typescript';
 import { TextInput, IconButton, Colors} from 'react-native-paper'
-import { Dropdown } from 'react-native-material-dropdown';
 
 
 export default function FormScreen(){
@@ -15,15 +14,8 @@ export default function FormScreen(){
   const [value5, onChangeText5] = React.useState('Ingrese...');
   const [value6, onChangeText6] = React.useState('Ingrese...');
   const [value7, onChangeText7] = React.useState('Ingrese...');
+  const [selectedValue, setSelectedValue] = React.useState("Martin");
   
-  let data = [{
-    value: 'Martin',
-  }, {
-    value: 'Pepe',
-  }, {
-    value: 'Luciano',
-  }];
-
 
  return (
     <View style={styles.container}>
@@ -131,10 +123,14 @@ export default function FormScreen(){
             onChangeText={text => onChangeText7(text)}
            value={value7} />
           
-            <Dropdown
-              label='Listado de clientes'
-              data={data}
-          />
+         <Picker
+           selectedValue={selectedValue}
+           style={{ height: 50, width: 150 }}
+           onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}
+         >
+           <Picker.Item label="Martin" value="martin" />
+           <Picker.Item label="Leandro" value="leandro" />
+         </Picker>
          
             <TouchableHighlight style={styles.buttonEnviar}>
             <Text style= {styles.textButoon}>Enviar</Text>           
