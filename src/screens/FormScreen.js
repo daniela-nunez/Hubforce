@@ -3,7 +3,7 @@ import FieldSet from 'react-native-fieldset';
 import {View, Text, StyleSheet, TouchableHighlight, form } from 'react-native';
 import { isConstructorDeclaration } from 'typescript';
 import { TextInput, IconButton, Colors} from 'react-native-paper'
-
+import { Dropdown } from 'react-native-material-dropdown';
 
 
 export default function FormScreen(){
@@ -16,6 +16,15 @@ export default function FormScreen(){
   const [value6, onChangeText6] = React.useState('Ingrese...');
   const [value7, onChangeText7] = React.useState('Ingrese...');
   
+  let data = [{
+    value: 'Martin',
+  }, {
+    value: 'Pepe',
+  }, {
+    value: 'Luciano',
+  }];
+
+
  return (
     <View style={styles.container}>
 
@@ -120,9 +129,13 @@ export default function FormScreen(){
             <TextInput
             style={{ height: 40, borderColor: 'gray', borderWidth: 1 , marginBottom: 20}}
             onChangeText={text => onChangeText7(text)}
-            value={value7} />
-
-    
+           value={value7} />
+          
+            <Dropdown
+              label='Listado de clientes'
+              data={data}
+          />
+         
             <TouchableHighlight style={styles.buttonEnviar}>
             <Text style= {styles.textButoon}>Enviar</Text>           
             </TouchableHighlight> 
